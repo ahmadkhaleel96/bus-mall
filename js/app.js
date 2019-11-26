@@ -9,6 +9,8 @@ var imagesSection = document.querySelector('#imagesSelector');
 
 var clicks = 25;
 
+
+
 function Choose(name) {
     this.name = name;
     this.imagePath = `img/${name}.jpg`;
@@ -78,9 +80,10 @@ function renderList(){
     var container = document.getElementById('list');
     var ulEl = document.createElement('ul');
     container.appendChild(ulEl);
-    for (var i = 0; i <= names.length; i++){
+    for (var i = 0; i <= names.length -1 ; i++){
         var liEl = document.createElement('li');
         liEl.textContent =`${names[i]} had ${Image.all[i].votes} votes and was shown ${Image.all[i].shows} times`;
+        console.log('gfgccf',Image.all[i])
         ulEl.appendChild(liEl);
     }
 }
@@ -90,5 +93,61 @@ function randomNumber(min, max) {
     return random
 
 }
+for (var i=0; i<= names.length -1; i++){
+var ctx = document.getElementById("chart").getContext("2d");
+var myChart = new Chart(ctx, {
+  type: "bar",
+  data: {
+    labels: ["bag", "banana", "bathroom", "boots", "breakfast", "bubblegum", "chair", "cthulhu", "dog-duck", "dragon", "pen", "pet-sweep", "scissors", "shark", "sweep", "tauntaun", "unicorn", "usb", "water-can", "wine-glass"],
+    datasets: [
+      {
+        label: "# of Votes",
+        data: [Image.all[i].votes],
+        backgroundColor: [
+          "rgba(255, 99, 132, 0.2)",
+         
+        ],
+        borderColor: [
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+          "rgba(75, 192, 192, 1)",
+          "rgba(153, 102, 255, 1)"
+        ],
+        
+        borderWidth: 1
+      },
 
+      {
+        label: "# of views",
+        data: [Image.all[i].veiws],
+        backgroundColor: [
+          "rgba(150, 150, 190, 0.2)"
+        ],
+        borderColor: [
+          "rgba(255, 99, 132, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+          "rgba(75, 192, 192, 1)",
+          "rgba(153, 102, 255, 1)",
+          "rgba(255, 159, 64, 1)"
+        ],
+        
+        borderWidth: 1
+      }
 
+      
+    ]
+  },
+  options: {
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true
+          }
+        }
+      ]
+    }
+  }
+});
+}

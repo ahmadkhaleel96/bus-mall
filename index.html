@@ -4,6 +4,7 @@
     <title> bus-mall</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 </head>
 <body>
     <header>
@@ -17,15 +18,16 @@
         </nav>
     </header>
     <main>
+        <div id="list">
+
+        </div>
         <section id="imagesSelection">
             <img id="firstImage" src="" alt="">
             <img id="secondImage" src="" alt="">
             <img id="thirdImage" src="" alt="">
         </section>
-        <div id="list">
-
-        </div>
     </main>
+    <canvas id="chart" width="300px" height="200px"></canvas>
 
     <script src="js/app.js"></script>
 </body>
