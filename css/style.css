@@ -7,10 +7,6 @@ body {
     color: rgb(56, 5, 5);
     margin-bottom: 40px;
   }
-  header h1{
-    font-size: large;
-    text-size-adjust: 30px;
-  }
   header nav ul {
     list-style: none;
   }
@@ -20,7 +16,7 @@ body {
   }
   header nav ul li a {
     text-decoration: none;
-    color: rgb(82, 25, 4);
+    color: coral;
     font-size: 25px;
     font-weight: 100;
   }
@@ -44,9 +40,4 @@ body {
   div {
     text-align: center;
     float: left;
-  }
-  canvas {
-    border-style: solid ;
-    width: 600px;
-    height: 400px;
   }
