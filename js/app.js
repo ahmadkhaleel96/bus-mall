@@ -26,13 +26,14 @@ for (let i = 0; i < names.length; i++) {
     new Choose(names[i])
 
 }
+
 // i took this funtion from the reveiw and deleted the while loop 
 var previousIndexs = [];
 function getUniqueIndex() {
   var index = randomNumber(0, Image.all.length - 1);
   while (previousIndexs.includes(index)) {
     index = randomNumber(0, Image.all.length - 1);
-  }
+    }
   previousIndexs.push(index);
   
   if (previousIndexs.length > 3) {
