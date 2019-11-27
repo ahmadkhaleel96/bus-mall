@@ -7,6 +7,7 @@ var secondImage = document.querySelector('#secondImage');
 var thirdImage = document.querySelector('#thirdImage');
 var imagesSection = document.querySelector('#imagesSelector');
 
+
 var clicks = 25;
 
 
@@ -33,8 +34,11 @@ function getUniqueIndex() {
     index = randomNumber(0, Image.all.length - 1);
   }
   previousIndexs.push(index);
+  
   if (previousIndexs.length > 3) {
     previousIndexs.shift();
+    console.log('hello', previousIndexs)
+
   }
   return index;
 }
@@ -45,6 +49,7 @@ function render() {
     var middleOne = Image.all[getUniqueIndex()];
     var rightOne = Image.all[getUniqueIndex()];
     
+
     
     leftOne.shows++;
     middleOne.shows++;
@@ -79,7 +84,7 @@ function renderListAndChart(){
     container.appendChild(ulEl);
     for (var i = 0; i <= names.length -1 ; i++){
       var liEl = document.createElement('li');
-        liEl.textContent =`${names[i]} had ${Image.all[i].votes} votes and was shown ${Image.all[i].shows} times`;
+        liEl.textContent =`${names} had ${Image.all[i].votes} votes and was shown ${Image.all[i].shows} times`;
         console.log('gfgccf',Image.all[i])
         ulEl.appendChild(liEl);
         labels.push(Image.all[i].name);
@@ -99,7 +104,7 @@ function renderListAndChart(){
     var viewsData = {
       label: "# of Views",
       data: views,
-      backgroundColor: "#000000"
+      backgroundColor: "#000000"  
     };
   
     var labelsInfo = {
