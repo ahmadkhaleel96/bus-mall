@@ -156,5 +156,4 @@ function randomNumber(min, max) {
     console.log(random)
     return random
 
-}    
-
+}
