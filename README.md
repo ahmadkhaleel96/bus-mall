@@ -11,9 +11,9 @@ this project is a multi-part project.
 This project is licensed under the HTML License.
 
 ## Acknowledgments
+copy the reset.css
+ copy the .eslintric.json
 
-copy the reset.css 
-copy the .eslintric.json
 
 ## website link
 https://ahmadkhaleel96.github.io/bus-mall/

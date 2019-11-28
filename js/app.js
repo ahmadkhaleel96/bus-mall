@@ -6,7 +6,7 @@ var firstImage = document.querySelector('#firstImage');
 var secondImage = document.querySelector('#secondImage');
 var thirdImage = document.querySelector('#thirdImage');
 var imagesSection = document.querySelector('#imagesSelector');
-
+var allProducts = [];
 
 var clicks = 25;
 
@@ -73,11 +73,12 @@ function render() {
 
 imagesSelection.addEventListener('click', handleClick);
 
+var votes = []; //to push the votes for the chart.
+var views = []; // to push the views for the chart.
+var labels = []; // to add the votes and views for each label.
+
 // i put the chart and list render functions togeather just like the review i used the chart construction used in the review beacause it is much much cleaner and easier to follow. 
 function renderListAndChart(){
-  var votes = []; //to push the votes for the chart.
-  var views = []; // to push the views for the chart.
-  var labels = []; // to add the votes and views for each label.
 
   // the list render function and pushed the data for the labels (votes and veiws).
   var container = document.getElementById('list');
@@ -85,8 +86,8 @@ function renderListAndChart(){
     container.appendChild(ulEl);
     for (var i = 0; i <= names.length -1 ; i++){
       var liEl = document.createElement('li');
-        liEl.textContent =`${names} had ${Image.all[i].votes} votes and was shown ${Image.all[i].shows} times`;
-        console.log('gfgccf',Image.all[i])
+        liEl.textContent =`${names[i]} had ${Image.all[i].votes} votes and was shown ${Image.all[i].shows} times`;
+        console.log('hi',Image.all[i])
         ulEl.appendChild(liEl);
         labels.push(Image.all[i].name);
         votes.push(Image.all[i].votes);
@@ -131,7 +132,30 @@ function renderListAndChart(){
       options: chartOptions
     });
   }
+
+  function updateChart (){
+    for (var i = 0; i <   Image.all.length; i++){
+      votes[i]= Image.all[i].votes;
+      views.push(Image.all[i].views);
+      names[i]=Image.all[i].all;
+    }
+    // renderListAndChart();
+  }
     
+
+  function setProduct (){
+    var Imagestringified = JSON.stringify(Image.all);
+    localStorage.setItem("products", Imagestringified);
+    }
+  function getProduct (){
+    if (localStorage.products){
+    var ImageRetrived = localStorage.getItem("products");
+    var ImageParsed = JSON.parse(ImageRetrived);
+    allProducts = ImageParsed;
+  }
+  render();
+  }
+
 
   // the event listener that works for 25 times
   function handleClick(e) {
@@ -139,6 +163,8 @@ function renderListAndChart(){
               if (clicks === 0 ){
                   imagesSelection.removeEventListener('click', handleClick);
                   renderListAndChart();
+                  setProduct();
+                  updateChart();
               }
       if (e.target.id !== "imagesSelection") {
           for (var i = 0; i < Image.all.length; i++) {
@@ -157,3 +183,6 @@ function randomNumber(min, max) {
     return random
 
 }
+
+
+getProduct();
