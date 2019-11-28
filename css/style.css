@@ -1,11 +1,18 @@
 body {
-    background: rgb(139, 139, 87);
+    background: rgb(146, 146, 104);
+    width: 1200px;
+    margin: 0 auto;
   }
   header {
     text-align: center;
     border: 5px solid rgb(73, 49, 40);
-    color: rgb(56, 5, 5);
+    color: rgb(199, 41, 41);
     margin-bottom: 40px;
+  }
+  header h1 {
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(24, 23, 23);
   }
   header nav ul {
     list-style: none;
@@ -16,22 +23,22 @@ body {
   }
   header nav ul li a {
     text-decoration: none;
-    color: coral;
+    color: rgb(187, 55, 7);
     font-size: 25px;
     font-weight: 100;
   }
   header nav ul li a:hover {
-    color: green;
+    color: lightskyblue;
   }
   #imagesSection {
-    max-width: 90%;
     margin: 0 auto;
+    max-width: 90%;
     text-align: center;
   }
   img {
     width: 300px;
     height: 300px;
-    border: 5px solid rgb(72, 77, 64);
+    border: 5px solid rgb(60, 61, 58);
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
@@ -42,6 +49,11 @@ body {
     font-size: 15px;
     font-weight: bold;
     line-height: 20px;
+  }
+  canvas{
+    width: 600px;
+    height: 400px;
+    margin: 0 auto;
   }
   #chart{
     color: black;
